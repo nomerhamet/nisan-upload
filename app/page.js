@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import QRCode from "qrcode.react";
+import dynamic from "next/dynamic";
+
+// QRCode bileşenini SSR dışında yükle
+const QRCode = dynamic(() => import("qrcode.react"), { ssr: false });
 
 export default function Home() {
   const [file, setFile] = useState(null);
